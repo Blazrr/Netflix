@@ -1,4 +1,4 @@
-const API_KEY:string='12ec2944a7306a60bae13ff4ed939caa'
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 
 
 const requests = {

@@ -26,6 +26,7 @@ function Row({ category,title }: Props) {
         }
     }
 
+    console.log(category)
 
     return (
         <div className='ml-2 mt-4'>
@@ -35,7 +36,7 @@ function Row({ category,title }: Props) {
                 <FaArrowRight className='h-8 w-8 text-white absolute right-5 z-20 cursor-pointer bottom-20 top-16 hidden group-hover:inline-block' onClick={() => handleClick('right')} />
                 <div className='flex space-x-3 overflow-x-scroll relative items-center p-2 scrollbar-hide' ref={rowRef}>
                     {category.map((image, id) => {
-                        return <Vignette imageUrl={category[id].backdrop_path} key={id} />
+                        return <Vignette imageUrl={category[id].backdrop_path || category[id].poster_path} key={id} />
                     })}
 
                 </div>

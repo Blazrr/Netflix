@@ -21,9 +21,6 @@ const Home = ({tvDiscover, movieDiscover, todayAll,bestRate}:Props) => {
   const [data,setData] = useState <null|[]> ([])
   
 
-  
-    console.log(tvDiscover)
-
 
   return (
     <div className='relative bg-gradient-to-b  h-full '>
