@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import {FaBell, FaSearch} from 'react-icons/fa'
 
@@ -6,13 +6,30 @@ import {FaBell, FaSearch} from 'react-icons/fa'
  
 function Header() {
 
+   
+    const [isScrolled, setIsScrolled] = useState(false)
 
+    useEffect(() =>{
+      const handleScroll = ( ) =>{
+        if (window.scrollY > 0){
+          setIsScrolled(true)
+        }
+        else{
+          setIsScrolled(false)
+        }
+      }
+      window.addEventListener('scroll', handleScroll)
+  
+      return () =>{
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }, [])
  
    
      
 
     return (
-        <div className='bg-black w-full p-4 lg:p-6 flex transition-all duration-75 items-center justify-between'>
+        <div className={`w-full p-4 lg:p-6 flex fixed top-0 transition-all duration-75 z-40 items-center justify-between ${isScrolled && 'bg-black'}`}  >
             <div className='flex space-x-2 lg:space-x-6'>
                 <div className=' w-20 h-8 relative lg:h-12 lg:w-20'>
                     <Image src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1280px-Netflix_2015_logo.svg.png'

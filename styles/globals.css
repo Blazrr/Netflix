@@ -7,3 +7,9 @@
     @apply hover:text-slate-400 duration-100 ease-in-out cursor-pointer transition-all
   }
 }
+
+@layer base {
+  body{
+    @apply scrollbar-thumb-red-500 scrollbar-track-gray-100 scrollbar 
+  }
+}
